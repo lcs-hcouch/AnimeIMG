@@ -1,15 +1,15 @@
 //
-//  QuoteView.swift
-//  Quotes
+//  AnimeView.swift
+//  Anime
 //
 //  Created by Hayden Couch on 2021-10-14.
 //
 
 import SwiftUI
 
-struct QuoteView: View {
+struct AnimeView: View {
     
-    let item: Quote
+    let item: Anime
     
     var body: some View {
         
@@ -52,6 +52,6 @@ struct QuoteView: View {
 
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteView(item: Quote.dummyData.first!)
+        AnimeView(item: Anime.dummyData.first!)
     }
 }

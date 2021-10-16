@@ -7,19 +7,19 @@
 
 import Foundation
 
-protocol QuotesService {
-    func fetchRandomQuotes() async throws -> [Quote]
+protocol AnimeService {
+    func fetchRandomAnime() async throws -> [Anime]
 }
 
 
 
-final class QuotesServiceImpl: QuotesService {
+final class AnimeServiceImpl: AnimeService {
      struct Response: Decodable {
         let success: Bool
-        let data: [Quote]
+        let data: [Anime]
     }
     
-    func fetchRandomQuotes() async throws -> [Quote] {
+    func fetchRandomAnime() async throws -> [Anime] {
         
         let url = URL(string: APIConstants.baseUrl)!
         

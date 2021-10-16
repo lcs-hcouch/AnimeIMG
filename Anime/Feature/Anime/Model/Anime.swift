@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Quote: Identifiable, Decodable {
+struct Anime: Identifiable, Decodable {
     let anime_id: Int
     let anime_name: String
     let anime_img: String
     var id: String {anime_name}
 }
 
-extension Quote {
+extension Anime {
     
-    static let dummyData: [Quote] = [
-        Quote(anime_id: 1, anime_name: "Character 1", anime_img: "Random Quote 1"),
+    static let dummyData: [Anime] = [
+        Anime(anime_id: 1, anime_name: "Character 1", anime_img: "Random Q1"),
     ]
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct QuotesApp: App {
+struct AnimeApp: App {
     var body: some Scene {
         WindowGroup {
-            QuotesScreen()
+            AnimeScreen()
         }
     }
 }

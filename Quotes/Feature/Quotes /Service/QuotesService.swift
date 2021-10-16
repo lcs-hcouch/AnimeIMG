@@ -11,13 +11,24 @@ protocol QuotesService {
     func fetchRandomQuotes() async throws -> [Quote]
 }
 
+
+
 final class QuotesServiceImpl: QuotesService {
+     struct Response: Decodable {
+        let success: Bool
+        let data: [Quote]
+    }
     
     func fetchRandomQuotes() async throws -> [Quote] {
-        let urlSession = URLSession.shared
-        let url = URL(string: APIConstants.baseUrl.appending("/api/quotes"))
-        let (data, _) = try await urlSession.data(from: url!)
-        return try JSONDecoder().decode([Quote].self, from: data)
+        
+        let url = URL(string: APIConstants.baseUrl)!
+        
+        let (data,response) = try await URLSession.shared.data(from: url)
+        let result = try JSONDecoder().decode(Response.self, from: data)
+    
+        print(result.data)
+        return result.data
     }
     
 }
+    

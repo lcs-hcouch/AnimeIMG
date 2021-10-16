@@ -24,6 +24,7 @@ final class QuotesViewModelImpl: QuotesViewModel {
     
     func getRandomQuotes() async {
         do {
+            print("Loading data")
             self.quotes = try await service.fetchRandomQuotes()
         } catch {
             print(error)

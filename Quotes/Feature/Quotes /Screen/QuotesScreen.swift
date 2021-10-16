@@ -13,25 +13,21 @@ struct QuotesScreen: View {
         service: QuotesServiceImpl()
     )
     
+    
     var body: some View {
-
-        Group {
-        if vm.quotes.isEmpty {
-            LoadingView(text: "Fetching Quotes")
-        } else {
-        
-        List{
-            ForEach(vm.quotes, id: \.anime) { item in
-                QuoteView(item: item)
+        VStack {
+            List{
+                ForEach(vm.quotes) { item in
+                    QuoteView(item: item)
+                }
             }
         }
-    }
-}
         .task {
             await vm.getRandomQuotes()
+            print(vm.quotes)
         }
     }
-   
+    
 }
 
 struct QuotesScreen_Previews: PreviewProvider {

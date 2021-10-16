@@ -18,11 +18,17 @@ struct QuoteView: View {
             HStack {
                 Image(systemName: "tv")
                     .font(.system(size: 12, weight: .black))
-                Text(item.anime)
+                Text(item.anime_name)
             }
             
-            Text(makeAttributedString(title:"Character", label: item.character))
-            Text(makeAttributedString(title:"Quotes", label: item.quote))
+            Text(makeAttributedString(title:"Anime", label: item.anime_name))
+            AsyncImage(url: URL(string: item.anime_img)) { image in
+                image.resizable()
+            } placeholder: {
+                Color.red
+            }
+            .frame(width: 128, height: 128)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
                 .lineLimit(2)
         }
                .padding()
